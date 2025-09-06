@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexiCar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include icon library for card icons -->
+  <link rel="stylesheet" href="Car-style.css"/>
+<style>
+  .contact-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  max-height: 800px;
+  margin: 40px auto;
+  align-items: flex-start;
+}
+.left-section {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-image {
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+.tab-group {
+  width: 320px;
+}
+.tab-btn {
+  background: #f7f7f7;
+  border: 1px solid #eaeaea;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 2px;
+  transition: background 0.2s;
+}
+.tab-btn.active {
+  background: #e0f6ff;
+  font-weight: bold;
+  border-bottom: none;
+}
+.tab-content {
+  display: none;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 0 0 12px 12px;
+  padding: 18px;
+  margin-bottom: 7px;
+}
+.tab-content.active {
+  display: block;
+}
+.right-section {
+  flex: 1;
+  background: #fff;
+  padding: 28px 34px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  min-width: 340px;
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.right-section input,
+.right-section textarea {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 1.2em;
+}
+.subject-options {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+}
+textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+}
+.submit-btn {
+  display: block;
+  width: 100%;
+  background: #15c2e0;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  margin-top: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:hover {
+  background: #109db4;
+}
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-section, .tab-group, .left-section {
+    width: 95%;
+    min-width: unset;
+  }
+}
+
+</style>
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo"> <i class="fa-solid fa-car-side"></i>&nbsp;FlexiCar</span>
+    <nav>
+      <a href="Home.html">Home</a>
+      <ul class="dropdown">
+      <a href="#" id="car-menu">Cars</a>
+      <ul class="dropdown-menu">
+        <ul><a href="pickup.html">Pickup Cars</a></ul>
+        <ul><a href="van-cars.html">Van Cars</a></ul>
+        <ul><a href="Saloncars.html">Saloon Cars</a></ul>
+        <ul><a href="off-road.html">Off Road Cars</a></ul>
+        <ul><a href="sports-car.html">Sports Cars</a></ul>
+      </ul>
+      <a href="Pricing.html">Pricing</a>
+      <a href="About-us.html">About</a>
+      <a href="Contact-us.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </header>
+<div class="contact-container">
+  <div class="left-section">
+    <img src="Frame 427319104.png" class="contact-image" alt="Contact Center">
+    <div class="tab-group">
+      <div class="tab-btn active" data-tab="contact">Contact</div>
+      <div class="tab-btn" data-tab="locations">Locations</div>
+      <div class="tab-btn" data-tab="hours">Business Hours</div>
+      <div class="tab-content active" data-content="contact">
+        <p>Contact us via form or chat.</p>
+      </div>
+      <div class="tab-content" data-content="locations">
+        <p>123 Main Street, Suite 21, City, Country</p>
+      </div>
+      <div class="tab-content" data-content="hours">
+        <p>Chat Time: Our Team is Available From Monday to Saturday from 9:00AM to 8:00PM.</p>
+      </div>
+    </div>
+  </div>
+  <div class="right-section">
+    <form id="contactForm">
+      <div class="form-row">
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+      </div>
+      <div class="form-row">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="number" placeholder="Number" required>
+      </div>
+      <div class="form-row">
+        <label>Select Subject?</label>
+        <div class="subject-options">
+          <label><input type="radio" name="subject" value="General inquiry" required> General inquiry</label>
+          <label><input type="radio" name="subject" value="Call Request"> Call Request</label>
+          <label><input type="radio" name="subject" value="Complaint"> Complaint</label>
+          <label><input type="radio" name="subject" value="Information"> Information</label>
+        </div>
+      </div>
+      <textarea name="message" placeholder="Message"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>KNOW</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">About FlexiCar</a></li>
+        <li><a href="#">Bulk Order &amp; Booking Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>TERMS &amp; CONDITIONS</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery &amp; Return Policies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li>For Sale: FlexiCar@co.in</li>
+        <li>Call: +91 234567890</li>
+        <li>For Complaints: 1800 2421 2421</li>
+        <li>Chat Time: Our Team is Available<br>
+            From Monday to Saturday from<br>
+            9.00AM &ndash; 8.00PM.
+        </li>
+        <li>For Complaints: Flexioc.com</li>
+      </ul>
+    </div>
+    <div class="footer-col app-col">
+      <h4>DOWNLOAD APP</h4>
+      <div class="app-links">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="app-badge"></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge"></a>
+      </div>
+    </div>
+    <div class="footer-col follow-col">
+      <h4>FOLLOW US</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.tab-content[data-content="${btn.dataset.tab}"]`).classList.add('active');
+  });
+});
+document.querySelector('.tab-btn').click();
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = Object.fromEntries(new FormData(this).entries());
+  console.log('Saved client data:', formData);
+  alert("Information saved!");
+  this.reset();
+});
+</script>
+</body>
+</html>

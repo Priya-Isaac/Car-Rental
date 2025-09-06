@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexiCar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include icon library for card icons -->
+  <link rel="stylesheet" href="Car-style.css"/>
+<style>
+  body {
+  background: #f9fafe;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  color: #222;
+}
+
+.filter-page {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+}
+
+.filter-panel {
+  background: #f5f8ff;
+  border: 1px solid #dbdbdb;
+  border-radius: 14px;
+  width: 350px;
+  padding: 24px 18px;
+  box-sizing: border-box;
+}
+
+.filter-panel section {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.filter-panel label, 
+.filter-panel span {
+  display: inline-block;
+  margin-bottom: 6px;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+#price-range {
+  width: 70%;
+  margin-right: 10px;
+}
+
+#price-label {
+  font-weight: 500;
+}
+
+#applyFilter {
+  background: #1cc3e4;
+  color: #fff;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: background 0.18s;
+}
+#applyFilter:hover {
+  background: #139bb4;
+}
+
+.results-panel {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 14px;
+  flex: 1;
+  padding: 24px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.results-header h3 {
+  font-size: 1.18em;
+  margin: 0;
+}
+.view-all {
+  color: #1cc3e4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.car-list {
+  max-height: 1000px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.car-card {
+  display: flex;
+  background: #f5f8ff;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,126,255,0.04);
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.car-card img {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #ddd;
+}
+
+.car-info {
+  flex: 1;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #222;
+  margin: 7px 0 5px 0;
+}
+.car-price span {
+  font-size: 0.9em;
+  color: #444;
+}
+
+.car-specs {
+  display: flex;
+  gap: 16px;
+  font-size: 0.97em;
+  margin-bottom: 6px;
+  color: #617283;
+}
+.car-rating {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.rent-btn {
+  background: #14c8cd;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.rent-btn:hover {
+  background: #148a8c;
+}
+
+@media (max-width: 900px) {
+  .filter-page {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .filter-panel, .results-panel {
+    width: 97%;
+    margin: 0 auto;
+  }
+}
+</style>
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo"> <i class="fa-solid fa-car-side"></i>&nbsp;FlexiCar</span>
+    <nav>
+      <a href="Home.html">Home</a>
+      <ul class="dropdown">
+      <a href="#" id="car-menu">Cars</a>
+      <ul class="dropdown-menu">
+        <ul><a href="#">Pickup Cars</a></ul>
+        <ul><a href="#">Van Cars</a></ul>
+        <ul><a href="#">Saloon Cars</a></ul>
+        <ul><a href="#">Off Road Cars</a></ul>
+        <ul><a href="#">Sports Cars</a></ul>
+      </ul>
+      <a href="Pricing.html">Pricing</a>
+      <a href="About-us.html">About</a>
+      <a href="Contact-us.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </header>
+<div class="filter-page">
+  <aside class="filter-panel" aria-label="Filter Options">
+    <form id="carFilterForm">
+      <section>
+        <label for="rental-date">Rental Date:</label>
+        <input type="date" id="rental-date" name="rental-date">
+      </section>
+      <section>
+        <span>Rental Type:</span>
+        <label><input type="radio" name="rental-type" value="hourly"> Per hour</label>
+        <label><input type="radio" name="rental-type" value="oneday"> One Day</label>
+        <label><input type="radio" name="rental-type" value="monthly"> Monthly</label>
+      </section>
+      <section>
+        <span>Fuel Type:</span>
+        <label><input type="checkbox" name="fuel" value="petrol"> petrol</label>
+        <label><input type="checkbox" name="fuel" value="diesel"> Diesel</label>
+        <label><input type="checkbox" name="fuel" value="electric"> Electric</label>
+      </section>
+      <section>
+        <span>Car Model & Year:</span>
+        <label><input type="checkbox" name="year" value="2023"> 2023</label>
+        <label><input type="checkbox" name="year" value="2024"> 2024</label>
+        <label><input type="checkbox" name="year" value="2025"> 2025</label>
+      </section>
+      <section>
+        <span>Transmission:</span>
+        <label><input type="radio" name="transmission" value="automatic"> automatic</label>
+        <label><input type="radio" name="transmission" value="manual"> Manual</label>
+        <label><input type="radio" name="transmission" value="any"> Any</label>
+      </section>
+      <section>
+        <span>Body style:</span>
+        <label><input type="checkbox" name="body" value="sedan"> sedan</label>
+        <label><input type="checkbox" name="body" value="wagon"> wagon</label>
+        <label><input type="checkbox" name="body" value="crossover"> crossover</label>
+        <label><input type="checkbox" name="body" value="coupe"> coupe</label>
+        <label><input type="checkbox" name="body" value="pickup"> pickup</label>
+        <label><input type="checkbox" name="body" value="sport-coupe"> Sport coupe</label>
+      </section>
+      <section>
+        <span>Price Range:</span>
+        <input type="range" min="1000" max="10000" step="100" value="2000" id="price-range" name="price">
+        <span id="price-label">1k-2k</span>
+      </section>
+      <section>
+        <span>Car Brand:</span>
+        <label><input type="checkbox" name="brand" value="Mahindra"> Mahindra</label>
+        <label><input type="checkbox" name="brand" value="Hyundai"> Hyundai</label>
+        <label><input type="checkbox" name="brand" value="BMW" checked> BMW</label>
+        <label><input type="checkbox" name="brand" value="Jeep"> Jeep</label>
+        <label><input type="checkbox" name="brand" value="Toyota"> Toyota</label>
+        <label><input type="checkbox" name="brand" value="Tata Motors"> Tata Motors</label>
+        <label><input type="checkbox" name="brand" value="Audi" checked> Audi</label>
+        <label><input type="checkbox" name="brand" value="Skoda"> Skoda</label>
+        <label><input type="checkbox" name="brand" value="Kia"> Kia</label>
+        <label><input type="checkbox" name="brand" value="Renault"> Renault</label>
+        <label><input type="checkbox" name="brand" value="MB" checked> MB</label>
+        <label><input type="checkbox" name="brand" value="MG"> MG</label>
+      </section>
+      <button type="submit" id="applyFilter"><a href="Home.html">Apply</a></button>
+
+        </form>
+  </aside>
+
+  <main class="results-panel">
+    <div class="results-header">
+      <h3>Related Details:</h3>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="car-list">
+      <div class="car-card">
+        <img src="audi.png" alt="Audi Q3 Sportback 2025"/>
+        <div class="car-info">
+          <strong>Audi Q3 Sportback 2025</strong>
+          <div class="car-price">1,600 <span>/day</span></div>
+          <div class="car-specs">
+            <span>4,000</span>
+            <span>Manual</span>
+            <span>7 Person</span>
+            <span>Electric</span>
+          </div>
+          <div class="car-rating">
+            <span>⭐ 4.7</span>
+            <button class="rent-btn">Rent Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="image 32.png" alt="Ferrari 296 GTB 2025"/>
+        <div class="car-info">
+          <strong>Ferrari 296 GTB 2025</strong>
+          <div class="car-price">1,300 <span>/day</span></div>
+          <div class="car-specs">
+            <span>5,000</span>
+            <span>Auto</span>
+            <span>4 Person</span>
+            <span>Electric</span>
+          </div>
+          <div class="car-rating">
+            <span>⭐ 5.0</span>
+            <button class="rent-btn">Rent Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="image 37.png" alt="Mercedes-Benz 2025"/>
+        <div class="car-info">
+          <strong>Mercedes-Benz 2025</strong>
+          <div class="car-price">1,100 <span>/day</span></div>
+          <div class="car-specs">
+            <span>3,800</span>
+            <span>Auto</span>
+            <span>4 Person</span>
+            <span>Petrol</span>
+          </div>
+          <div class="car-rating">
+            <span>⭐ 4.5</span>
+            <button class="rent-btn">Rent Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>KNOW</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">About FlexiCar</a></li>
+        <li><a href="#">Bulk Order &amp; Booking Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>TERMS &amp; CONDITIONS</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery &amp; Return Policies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li>For Sale: FlexiCar@co.in</li>
+        <li>Call: +91 234567890</li>
+        <li>For Complaints: 1800 2421 2421</li>
+        <li>Chat Time: Our Team is Available<br>
+            From Monday to Saturday from<br>
+            9.00AM &ndash; 8.00PM.
+        </li>
+        <li>For Complaints: Flexioc.com</li>
+      </ul>
+    </div>
+    <div class="footer-col app-col">
+      <h4>DOWNLOAD APP</h4>
+      <div class="app-links">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="app-badge"></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge"></a>
+      </div>
+    </div>
+    <div class="footer-col follow-col">
+      <h4>FOLLOW US</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  // Price Range Accessibility
+document.getElementById('price-range').addEventListener('input', function () {
+  const val = this.value;
+  let minLab = Math.floor(val / 1000) * 1;
+  let maxLab = Math.ceil(val / 1000) * 2;
+  document.getElementById('price-label').textContent = minLab + 'k-' + maxLab + 'k';
+});
+
+// Filter navigation: On selection, go to filter result page
+document.getElementById('carFilterForm').addEventListener('change', function (e) {
+  // Example: navigating to a new page on selection (customize destination as needed)
+  // window.location.href = '/filter-results.html?selected=' + e.target.name + '-' + e.target.value;
+  // For demo, show accessible focus and give feedback:
+  e.target.focus();
+});
+
+// Submit: Open results page with selected filters (simulate navigation)
+document.getElementById('carFilterForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  const params = Array.from(formData.entries()).map(pair => `${pair[0]}=${encodeURIComponent(pair[1])}`).join('&');
+  // Example: navigate to filter results with GET parameters
+  window.location.href = '/filter-results.html?' + params;
+});
+</script>
+</body>
+</html> 

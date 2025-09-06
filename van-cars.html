@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexiCar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include icon library for card icons -->
+  <link rel="stylesheet" href="Car-style.css"/>
+<style>
+    body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  background: #fafafd;
+  margin: 0;
+}
+.car-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 18px 0;
+  font-size: 24px;
+  color: #888;
+}
+.filter-btn {
+  background: #fff;
+  border: 1px solid #e2e6ea;
+  border-radius: 7px;
+  padding: 7px 18px;
+  color: #3b6087;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background .2s;
+}
+.filter-btn:hover {
+  background: #f0f7ff;
+}
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 28px;
+  padding: 10px 0;
+}
+.car-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(180,187,220,.09);
+  border: 1px solid #ececf7;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s;
+}
+.car-card:hover {
+  box-shadow: 0 8px 24px rgba(60, 90, 131, 0.12);
+}
+.car-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.car-details {
+  padding: 0 16px 11px 16px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.car-details h4 {
+  margin: 2px 0 10px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #36436b;
+}
+.price {
+  font-size: 30px;
+  font-weight: 600;
+  color: #002c5a;
+}
+.price span {
+  font-size: 13px;
+  color: #aaa;
+}
+.specs {
+  margin: 8px 0;
+  font-size: 13px;
+  color: #7e8da1;
+  font-weight: 500;
+}
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+.rating {
+  color: #ffbd29;
+  font-weight: 600;
+}
+.rent-btn {
+  background: #0ac9b4;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  padding: 6px 19px;
+  font-weight: 500;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.rent-btn:hover {
+  background: #098b7e;
+}
+.pagination {
+  text-align: center;
+  margin: 35px 0 25px 0;
+}
+.pagination button {
+  background: #ececf7;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  margin: 0 2px;
+  color: #444;
+  font-weight: 500;
+  cursor: pointer;
+}
+.pagination button.active, .pagination button:hover {
+  background: #0ac9b4;
+  color: #fff;
+}
+.pagination span {
+  margin-left: 8px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+  </style>
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo"> <i class="fa-solid fa-car-side"></i>&nbsp;FlexiCar</span>
+    <nav>
+      <a href="Home.html">Home</a>
+      <ul class="dropdown">
+      <a href="#" id="car-menu">Cars</a>
+      <ul class="dropdown-menu">
+        <ul><a href="#">Pickup Cars</a></ul>
+        <ul><a href="#">Van Cars</a></ul>
+        <ul><a href="#">Saloon Cars</a></ul>
+        <ul><a href="#">Off Road Cars</a></ul>
+        <ul><a href="#">Sports Cars</a></ul>
+      </ul>
+      <a href="Pricing.html">Pricing</a>
+      <a href="About-us.html">About</a>
+      <a href="Contact-us.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </header>
+<div class="car-list-header">
+  <span>Home &gt; Cars &gt; Van Cars</span>
+  <a class="filter-btn" href="filter.html">
+    <i class="fa fa-filter"></i> Filter
+  </a>
+</div>
+
+
+<div class="car-grid">
+  <div class="car-card">
+    <img src="image 57.png" alt="Force Urbania 2023">
+    <div class="car-details">
+      <h4>Force Urbania 2023</h4>
+      <div class="price"><strong>1,800</strong><span>/day</span></div>
+      <div class="specs">
+        <span>4,000 km</span> |
+        <span>Manual</span> |
+        <span>7 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 4.7</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  <!-- Repeat car-card for each car; change content/img src -->
+  <div class="car-card">
+    <img src="image 58.png" alt="Maruti Eeco 2024">
+    <div class="car-details">
+      <h4>Maruti Eeco 2024</h4>
+      <div class="price"><strong>2,300</strong><span>/day</span></div>
+      <div class="specs">
+        <span>4,000 km</span> |
+        <span>Auto</span> |
+        <span>4 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 4.9</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="image 62.png" alt="Suzuki Eeco 2024">
+    <div class="car-details">
+      <h4>Suzuki Eeco 2024</h4>
+      <div class="price"><strong>1,800</strong><span>/day</span></div>
+      <div class="specs">
+        <span>5,000 km</span> |
+        <span>Auto</span> |
+        <span>4 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 5.0</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="image 60.png" alt="Suzuki Eeco 2023">
+    <div class="car-details">
+      <h4>Suzuki Eeco 2023</h4>
+      <div class="price"><strong>1,800</strong><span>/day</span></div>
+      <div class="specs">
+        <span>4,000 km</span> |
+        <span>Manual</span> |
+        <span>7 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 4.7</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="image 61.png" alt="Tata Mini Platinum 2024">
+    <div class="car-details">
+      <h4>Tata Mini Platinum 2024</h4>
+      <div class="price"><strong>2,300</strong><span>/day</span></div>
+      <div class="specs">
+        <span>8,000 km</span> |
+        <span>Auto</span> |
+        <span>4 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 4.9</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="image 59.png" alt="Toyota Hiace 2025">
+    <div class="car-details">
+      <h4>Toyota Hiace 2025</h4>
+      <div class="price"><strong>1,800</strong><span>/day</span></div>
+      <div class="specs">
+        <span>5,000 km</span> |
+        <span>Auto</span> |
+        <span>4 Person</span> |
+        <span>Electric</span>
+      </div>
+      <div class="card-footer">
+        <span class="rating"><i class="fa fa-star"></i> 5.0</span>
+        <button class="rent-btn">Rent Now</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add more car-card blocks for each vehicle -->
+</div>
+<div class="pagination">
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <span>... 20</span>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>KNOW</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">About FlexiCar</a></li>
+        <li><a href="#">Bulk Order &amp; Booking Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>TERMS &amp; CONDITIONS</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery &amp; Return Policies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li>For Sale: FlexiCar@co.in</li>
+        <li>Call: +91 234567890</li>
+        <li>For Complaints: 1800 2421 2421</li>
+        <li>Chat Time: Our Team is Available<br>
+            From Monday to Saturday from<br>
+            9.00AM &ndash; 8.00PM.
+        </li>
+        <li>For Complaints: Flexioc.com</li>
+      </ul>
+    </div>
+    <div class="footer-col app-col">
+      <h4>DOWNLOAD APP</h4>
+      <div class="app-links">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="app-badge"></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge"></a>
+      </div>
+    </div>
+    <div class="footer-col follow-col">
+      <h4>FOLLOW US</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 All Rights Reserved.</p>
+  </div>
+</footer>

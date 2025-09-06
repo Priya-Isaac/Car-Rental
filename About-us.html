@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexiCar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include icon library for card icons -->
+  <link rel="stylesheet" href="Car-style.css"/>
+  <style>
+    /* Who We Are Section Styles */
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.about-image img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.about-content {
+  flex: 1;
+  font-display: justify;
+  padding-top: 4px;
+}
+
+.about-breadcrumb {
+  font-size: 15px;
+  color: #232323;
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+.about-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.5px;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #232323;
+  opacity: 0.92;
+  margin: 0;
+}
+/* Why Choose Us Section Styles */
+.choose-container {
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 18px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.choose-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  letter-spacing: 0.2px;
+}
+
+.choose-features {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+}
+
+.choose-box {
+  background: #fff;
+  border: 2px solid #e0e0ea;
+  border-radius: 16px;
+  box-shadow: none;
+  width: 280px;
+  padding: 20px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.choose-box img {
+  width: 100%;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.choose-box h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.choose-box p {
+  font-size: 15px;
+  color: #393939;
+  line-height: 1.6;
+  margin: 0;
+}
+/* Stat Counters */
+.stats-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 36px auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.stat-item {
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  color: #36c3f9;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 15px;
+  color: #181818;
+  font-weight: 500;
+  margin-bottom: 2px;
+  opacity: 0.8;
+}
+
+/* How it works */
+.how-works-section {
+  text-align: center;
+  margin: 0 0 36px 0;
+}
+.how-works-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+.how-works-desc {
+  font-size: 16px;
+  color: #232323;
+  opacity: 0.88;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Steps + Image Section */
+.steps-image-section {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  gap: 34px;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 340px;
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  background: #99ddef;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: none;
+  border: 1.3px solid #ededf1;
+  gap: 18px;
+}
+
+.step-card img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.step-title {
+  font-size: 17px;
+  font-weight: bold;
+  color: #232232;
+}
+
+.step-desc {
+  font-size: 15px;
+  margin: 3px 0 0 0;
+  color: #3a3a3a;
+  line-height: 1.5;
+}
+
+/* Speedometer image section */
+.steps-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps-image img {
+  width: 345px;
+  height: 345px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: none;
+}
+  </style>
+
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo"> <i class="fa-solid fa-car-side"></i>&nbsp;FlexiCar</span>
+    <nav>
+      <a href="Home.html">Home</a>
+      <ul class="dropdown">
+      <a href="#" id="car-menu">Cars</a>
+      <ul class="dropdown-menu">
+        <ul><a href="#">Pickup Cars</a></ul>
+        <ul><a href="#">Van Cars</a></ul>
+        <ul><a href="#">Saloon Cars</a></ul>
+        <ul><a href="#">Off Road Cars</a></ul>
+        <ul><a href="#">Sports Cars</a></ul>
+      </ul>
+      <a href="Pricing.html">Pricing</a>
+      <a href="About-us.html">About</a>
+      <a href="Contact-us.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </header>
+  <!-- Who We Are Section -->
+<div class="about-container">
+  <div class="about-image">
+    <img src="Frame 427319106.png" alt="Stradaluxe Team">
+  </div>
+  <div class="about-content">
+    <div class="about-breadcrumb">Home &gt; About</div>
+    <h2 class="about-title">Who We Are</h2>
+    <p class="about-text">
+      At Stradaluxe, we provide a wide range of rental vehicles to suit every journey and lifestyle. From compact city cars and family-friendly SUVs to rugged off-roaders and premium luxury sedans, our diverse fleet is designed to meet your exact needs. Whether you're commuting, road tripping, or arriving in style, we make car rental simple, flexible, and reliable backed by quality service and full time support.
+    </p>
+  </div>
+</div>
+<!-- Why Choose Us Section -->
+<div class="choose-container">
+  <h2 class="choose-title">Why Choose Us</h2>
+  <div class="choose-features">
+    <div class="choose-box">
+      <img src="Frame 427319111.png" alt="Customer Support">
+      <h3>Customer Support</h3>
+      <p>
+        Our dedicated customer support team is available only emergency time 24h to assist with any questions or concerns, ensuring a smooth rental experience.
+      </p>
+    </div>
+    <div class="choose-box">
+      <img src="Frame 427319112.png" alt="Affordable Rates">
+      <h3>Affordable Rates</h3>
+      <p>
+        We offer competitive and transparent pricing, ensuring you get the best value for your rental without any hidden fees.
+      </p>
+    </div>
+    <div class="choose-box">
+      <img src="https://cdn3.vectorstock.com/i/1000x1000/45/57/no-hidden-charges-rubber-stamp-vector-11854557.jpg" alt="No Hidden Charges">
+      <h3>No Hidden Charges</h3>
+      <p>
+        We believe in transparency, so our pricing is clear from the start. No hidden charges, no unexpected costs; just honest, upfront rental rates.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- Stat Counters -->
+<div class="stats-section">
+  <div class="stat-item">
+    <span class="stat-number">20k+</span>
+    <span class="stat-label">Happy customers</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">150+</span>
+    <span class="stat-label">Count of cars</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">15+</span>
+    <span class="stat-label">Years of experince</span>
+  </div>
+</div>
+
+<!-- "How it works" Section -->
+<div class="how-works-section">
+  <h2 class="how-works-title">How it works</h2>
+  <p class="how-works-desc">
+    Renting a Premium car has never been easier. Our streamlined process<br>
+    makes it simple for you to book and confirm your vehicle of choice online
+  </p>
+</div>
+
+<!-- Steps + Image Section -->
+<div class="steps-image-section">
+  <div class="steps-list">
+    <div class="step-card">
+      <img src="image 27.png" alt="Choose your car">
+      <div>
+        <span class="step-title">Choose Your Car</span>
+        <p class="step-desc">Browse our wide selection from economy to luxury and pick the perfect ride for your needs.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img src="Frame 427319111.png" alt="Book online">
+      <div>
+        <span class="step-title">Book Online</span>
+        <p class="step-desc">Select dates, location, and extras. Complete your booking in just a few clicks.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img src="image 70.png" alt="Enjoy your ride">
+      <div>
+        <span class="step-title">Enjoy your ride</span>
+        <p class="step-desc">We'll deliver the car to your doorstep or you can pick it up at a nearby location.</p>
+      </div>
+    </div>
+  </div>
+  <div class="steps-image">
+    <img src="Rectangle 92.png" alt="Speedometer">
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>KNOW</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">About FlexiCar</a></li>
+        <li><a href="#">Bulk Order &amp; Booking Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>TERMS &amp; CONDITIONS</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery &amp; Return Policies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li>For Sale: FlexiCar@co.in</li>
+        <li>Call: +91 234567890</li>
+        <li>For Complaints: 1800 2421 2421</li>
+        <li>Chat Time: Our Team is Available<br>
+            From Monday to Saturday from<br>
+            9.00AM &ndash; 8.00PM.
+        </li>
+        <li>For Complaints: Flexioc.com</li>
+      </ul>
+    </div>
+    <div class="footer-col app-col">
+      <h4>DOWNLOAD APP</h4>
+      <div class="app-links">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="app-badge"></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge"></a>
+      </div>
+    </div>
+    <div class="footer-col follow-col">
+      <h4>FOLLOW US</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 All Rights Reserved.</p>
+  </div>
+</footer>

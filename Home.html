@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexiCar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include icon library for card icons -->
+  <link rel="stylesheet" href="Car-style.css"/>
+
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo"> <i class="fa-solid fa-car-side"></i>&nbsp;FlexiCar</span>
+    <nav>
+      <a href="Home.html">Home</a>
+      <ul class="dropdown">
+      <a href="#" id="car-menu">Cars</a>
+      <ul class="dropdown-menu">
+        <ul><a href="#">Pickup Cars</a></ul>
+        <ul><a href="#">Van Cars</a></ul>
+        <ul><a href="#">Saloon Cars</a></ul>
+        <ul><a href="#">Off Road Cars</a></ul>
+        <ul><a href="#">Sports Cars</a></ul>
+      </ul>
+      <a href="Pricing.html">Pricing</a>
+      <a href="About-us.html">About</a>
+      <a href="Contact-us.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </header>
+
+  <!-- HERO CAROUSEL -->
+  <section class="hero" id="hero">
+
+    <!-- Carousel controls -->
+    <div class="carousel-controls">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- Car name (pop in animation) and image -->
+    <div id="carName" class="car-name"></div>
+    <div class="car-img-wrapper">
+      <img id="carImg" class="car-img" alt="" loading="lazy"/>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards-row" id="detailCards"></div>
+  </section>
+  <div class="trip-selector">
+  <div class="trip-field">
+    <label class="trip-label">Departure</label>
+    <div class="trip-input-location">
+      <span class="trip-icon">&#x1F4CD;</span>
+      <input type="text" class="trip-location-input" placeholder="Coimbatore, Tirupur">
+    </div>
+  </div>
+  <div class="trip-field">
+    <label class="trip-label">Return Location</label>
+    <div class="trip-input-location">
+      <span class="trip-icon">&#x1F4CD;</span>
+      <input type="text" class="trip-location-input" placeholder="Coimbatore, Tirupur">
+    </div>
+  </div>
+  <div class="trip-field">
+    <label class="trip-label">Pickup Date Time</label>
+    <div class="trip-input-datetime">
+      <span class="trip-icon">&#x1F4C5;</span>
+      <input type="date" class="trip-date-input" value="2025-05-01">
+      <input type="time" class="trip-time-input" value="12:00">
+    </div>
+  </div>
+  <div class="trip-field">
+    <label class="trip-label">Return Date Time</label>
+    <div class="trip-input-datetime">
+      <span class="trip-icon">&#x1F4C5;</span>
+      <input type="date" class="trip-date-input" value="2025-05-05">
+      <input type="time" class="trip-time-input" value="23:00">
+    </div>
+  </div>
+  <div class="trip-search-box">
+    <button class="trip-search-btn">Search</button>
+  </div>
+</div>
+<section class="brand-showcase-section">
+  <div class="brand-showcase-header">
+    <h2 class="brand-showcase-title">Explore Trusted Car Brands</h2>
+    <p class="brand-showcase-subtitle">Rides you know, Brands you trust.</p>
+  </div>
+  <div class="brand-card-list">
+        <a href="saloon.html" class="brand-card-link">
+    <div class="brand-card">
+      <img src="q3-exterior-right-front-three-quarter-93480 1.png" alt="Audi Car" class="brand-card-img" />
+      <div class="brand-logo"><img src="audi.png" alt="Audi Logo"></div>
+    </div>
+    </a>
+        <a href="pickup.html" class="brand-card-link">
+
+    <div class="brand-card">
+      <img src="image 81.png" alt="Jeep Car" class="brand-card-img" />
+      <div class="brand-logo brand-gray"><img src="jeep.webp" alt="Jeep Logo"></div>
+    </div>
+    </a>
+        <a href="offroadcars.html" class="brand-card-link">
+
+    <div class="brand-card">
+      <img src="image 30.png" alt="Mercedes Car" class="brand-card-img" />
+      <div class="brand-logo"><img src="Mercedes-Benz-Logo.png" alt="Mercedes Logo"></div>
+    </div>
+    </a>
+    <a href="vancars.html" class="brand-card-link">
+      <div class="brand-card">
+        <img src="magnite-exterior-right-front-three-quarter-26 1.png" alt="Hyundai Car" class="brand-card-img" />
+        <div class="brand-logo brand-gray"><img src="hyundai.png" alt="Hyundai Logo"></div>
+      </div>
+    </a>
+        <a href="sportscar.html" class="brand-card-link">
+    <div class="brand-card">
+      <img src="land-rover-defender-right-front-three-quarter28 1.png" alt="Land Rover Car" class="brand-card-img" />
+      <div class="brand-logo brand-gray"><img src="land-rover-car-logo-coloring-page.png" alt="Land Rover Logo"></div>
+    </div>
+    </a>
+  </div>
+</section>
+
+<section class="type-zone">
+    <div class="type-header">Drive the Way You Want</div>
+    <div class="type-sub">Your ride, your style.</div>
+    <div class="category-grid">
+      <a class="category-link" href="saloon.html">
+        <img class="type-pic" src="image 32.png" alt="Saloon Car">
+        <span class="type-name">Saloon</span>
+      </a>
+      <a class="category-link" href="suv.html">
+        <img class="type-pic" src="image 31.png" alt="SUV">
+        <span class="type-name">Suv</span>
+      </a>
+      <a class="category-link" href="van.html">
+        <img class="type-pic" src="image 35.png" alt="Van">
+        <span class="type-name">Van</span>
+      </a>
+      <a class="category-link" href="pickup.html">
+        <img class="type-pic" src="41da191d6fbfe3fbd0b5d55d57600112 1.png" alt="Pickup">
+        <span class="type-name">Pickup</span>
+      </a>
+      <a class="category-link" href="sports.html">
+        <img class="type-pic" src="image 40.png" alt="Sports">
+        <span class="type-name">Sports</span>
+      </a>
+      <a class="category-link" href="offroad.html">
+        <img class="type-pic" src="image 36.png" alt="Off Road">
+        <span class="type-name">Off Road</span>
+      </a>
+      <a class="category-link" href="hatchback.html">
+        <img class="type-pic" src="image 39.png" alt="Hatchback">
+        <span class="type-name">Hatchback</span>
+      </a>
+      <a class="category-link" href="roster.html">
+        <img class="type-pic" src="image 37.png" alt="Roster">
+        <span class="type-name">Roster</span>
+      </a>
+    </div>
+  </section>
+    <section class="rides-zone">
+    <div class="rides-title">Most Popular Rides</div>
+    <div class="rides-sub">Top cars, top experiences.</div>
+    <div class="rides-rows">
+      <!-- Card 1 -->
+      <div class="car-box">
+        <img class="ride-img" src="Frame 427319107.png" alt="Toyota Fortuner 2023">
+        <div class="car-inf">
+          <div class="car-name">Toyota Fortuner 2023</div>
+          <div class="cost-row">1,800<small>/day</small></div>
+          <div class="detail-row">
+            <span>🚗 4,000</span>
+            <span>🔧 Manual</span>
+            <span>👨‍👩‍👧‍👦 7 Person</span>
+            <span>⚡ Electric</span>
+          </div>
+        </div>
+        <div class="footer-card">
+          <div class="star-row">⭐ 4.7</div>
+          <button class="rent-btn" onclick="bookCar('Toyota Fortuner 2023',1800)">Rent Now</button>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="car-box">
+        <img class="ride-img" src="image 28.png" alt="Nissan Maxima Platinum 2024">
+        <div class="car-inf">
+          <div class="car-name">Nissan Maxima Platinum 2024</div>
+          <div class="cost-row">2,300<small>/day</small></div>
+          <div class="detail-row">
+            <span>🚗 6,000</span>
+            <span>🔧 Auto</span>
+            <span>👨‍👩‍👧 4 Person</span>
+            <span>⚡ Electric</span>
+          </div>
+        </div>
+        <div class="footer-card">
+          <div class="star-row">⭐ 4.9</div>
+          <button class="rent-btn" onclick="bookCar('Nissan Maxima Platinum 2024',2300)">Rent Now</button>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="car-box">
+        <img class="ride-img" src="image 29.png" alt="Skoda Kodiaq Platinum 2025">
+        <div class="car-inf">
+          <div class="car-name">Skoda Kodiaq Platinum 2025</div>
+          <div class="cost-row">1,800<small>/day</small></div>
+          <div class="detail-row">
+            <span>🚗 5,000</span>
+            <span>🔧 Auto</span>
+            <span>👨‍👩‍👧 4 Person</span>
+            <span>⚡ Electric</span>
+          </div>
+        </div>
+        <div class="footer-card">
+          <div class="star-row">⭐ 5.0</div>
+          <button class="rent-btn" onclick="bookCar('Skoda Kodiaq Platinum 2025',1800)">Rent Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="car-listing">
+  <h2 class="car-listing__title">Popular Cars, Ready Drive</h2>
+  <p class="car-listing__subtitle">These cars are inmand: don'tit, book todayp>
+
+  <div class="car-listing__group">
+    <div class="car-listing__card">
+      <div class="car-listing__info">
+        <h3 class="car-listing__name">Audi Q7</h3>
+        <strong class="car-listing__headline">Command Attentionrive Prestigestrong>
+        <p class="car-listing__desc">The Audi Q7 is where power meets elegance. Boldyling, advancedchnology, ande confidence quattro alleel drive. It offers true drivingperiences thatrill, luxuriousd thrillingpacious, sophisticatedd unmistaky Audi—this ise SUV thatdefines what means to arrivep>
+        <button class="car-listing__btn">Explore</button>
+        <div class="car-listing__img-panel car-listing__img-panel--vertical">
+        <img src="Frame 427319046.png" class="car-listing__img-main" alt="Audi Q7 Main">
+        <div class="car-listing__img-row">
+          <img src="Frame 427319072.png" class="car-listing__img-sub" alt="Audi Q7 Wheel">
+          <img src="Frame 427319048.png" class="car-listing__img-sub" alt="Audi Q7 Interior">
+        </div>
+
+      </div>
+      
+      </div>
+    </div>
+
+    <div class="car-listing__card">
+      <div class="car-listing__info">
+        <h3 class="car-listing__name">BMW M2</h3>
+        <strong class="car-listing__headline">Pure Power, Perfectntrol.</strong>
+        <p class="car-listing__desc">The new BMW M2 is a compact powerhouse built for purs. With a turborged inlineengine, rear-wheel drive, and aggressive M stylingt deliversw performanced precise handling every turnrom the track the streethe M2 is engineered for those who crave thetimate drivingrill—without compromisep>
+        <button class="car-listing__btn">Explore</button>
+      </div>
+      <div class="car-listing__img-panel car-listing__img-panel--vertical">
+      <img src="Frame 427319065.png" class="car-listing__img-main" alt="BMW M2 Main">
+        <div class="car-listing__img-row">
+          <img src="Frame 427319068.png" class="car-listing__img-sub" alt="BMW M2 Badge">
+          <img src="Frame 427319067.png" class="car-listing__img-sub" alt="BMW M2 Wheel">
+        </div>
+  
+      </div>
+    </div>
+
+    <div class="car-listing__card">
+      <div class="car-listing__info">
+        <h3 class="car-listing__name">MINI Cooper</h3>
+        <strong class="car-listing__headline">Iconic Style, Electring Spiritstrong>
+        <p class="car-listing__desc">The 2025 MINI Cooper blends classic charm withtting-edge innovation. With its nimble sizelever designnd thrilling-kart feeling, it redefines urban drivingip throughty streets hit the openad—the MINIlivers bign in a compactckage.</p>
+        <button class="car-listing__btn">Explore</button>
+      </div>
+      <div class="car-listing_img-panel car-listing_img-panel--vertical">
+        <img src="Frame 427319073.png" class="car-listing__img-main" alt="MINI Cooper Main">
+        <div class="car-listing__img-row">
+          <img src="Frame 427319071.png" class="car-listing__img-sub" alt="MINI Cooper Dash">
+          <img src="Frame 427319070.png" class="car-listing__img-sub" alt="MINI Cooper Speedometer">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="brand-row">
+  <img src="audi.png" alt="Audi" class="brand-row__logo">
+  <img src="jeep.webp" alt="Jeep" class="brand-row__logo">
+  <img src="opei.png" alt="Opel" class="brand-row__logo">
+  <img src="Dacia-Logo.png" alt="Dacia" class="brand-row__logo">
+  <img src="renault.png" alt="Renault" class="brand-row__logo">
+  <img src="citroen.png" alt="Citroen" class="brand-row__logo">
+  <img src="Mercedes-Benz-Logo.png" alt="Mercedes" class="brand-row__logo">
+  <img src="hyundai.png" alt="Hyundai" class="brand-row__logo">
+  <img src="land-rover-car-logo-coloring-page.png" alt="Land Rover" class="brand-row__logo">
+</div>
+<section class="reviews-section">
+  <h2 class="reviews-section__title">What Our Customers Say</h2>
+  <p class="reviews-section__subtitle">Trusted by Drivers Everywhere.</p>
+  <div class="reviews-section__cards">
+    <div class="reviews-section__card">
+      <div class="reviews-section__card-content">
+        <p class="reviews-section__text">
+          I rented a BMW for a weekend road trip, and the whole process was seamless. The car was in perfect condition, and I’ll definitely rent again.
+        </p>
+        <div class="reviews-section__footer">
+          <span class="reviews-section__name">Revena</span>
+          <span class="reviews-section__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+      </div>
+      <div class="reviews-section__avatar">
+        <img src="Ellipse 1.png" alt="Customer" class="reviews-section__img">
+      </div>
+    </div>
+    <div class="reviews-section__card">
+      <div class="reviews-section__card-content">
+        <p class="reviews-section__text">
+          The MINI Cooper I rented was the perfect city car—fun to drive and easy to park. Great experience from start to finish!
+        </p>
+        <div class="reviews-section__footer">
+          <span class="reviews-section__name">Agalya</span>
+          <span class="reviews-section__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+      </div>
+      <div class="reviews-section__avatar">
+        <img src="Ellipse 2.png" alt="Customer" class="reviews-section__img">
+      </div>
+    </div>
+    <div class="reviews-section__card">
+      <div class="reviews-section__card-content">
+        <p class="reviews-section__text">
+          Adorable wholesale toy shop with high quality independently made bike and toys. Very friendly staff as well. A must stop with little ones when in Bath.
+        </p>
+        <div class="reviews-section__footer">
+          <span class="reviews-section__name">Muthu Ravi</span>
+          <span class="reviews-section__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+      </div>
+      <div class="reviews-section__avatar">
+        <img src="Ellipse 3.png" alt="Customer" class="reviews-section__img">
+      </div>
+    </div>
+  </div>
+  <div class="reviews-section__nav">
+    <span class="reviews-section_dot reviews-section_dot--active"></span>
+    <span class="reviews-section__dot"></span>
+    <span class="reviews-section__dot"></span>
+  </div>
+</section>
+<section class="faq-area">
+  <h2 class="faq-area__headline">Frequently Asked Questions</h2>
+  <p class="faq-area__subtext">Everything You Need to Know Before You Hit the Road</p>
+  <div class="faq-area__list">
+    <div class="faq-area__entry">
+      <button type="button" class="faq-area__question">What do I need to rent a car?<span class="faq-area__arrow">&#9662;</span></button>
+      <div class="faq-area__answer">
+        <p>You'll need a valid driver's license, a credit card, and proof of insurance. Some locations may have additional requirements.</p>
+      </div>
+    </div>
+    <div class="faq-area__entry">
+      <button type="button" class="faq-area__question">Can I rent a specific car model?<span class="faq-area__arrow">&#9662;</span></button>
+      <div class="faq-area__answer">
+        <p>Model requests are possible but subject to availability. Please inquire during your booking process for more information.</p>
+      </div>
+    </div>
+    <div class="faq-area__entry">
+      <button type="button" class="faq-area__question">Is insurance included in the rental price?<span class="faq-area__arrow">&#9662;</span></button>
+      <div class="faq-area__answer">
+        <p>Basic insurance coverage is included, with options to upgrade depending on your needs at checkout.</p>
+      </div>
+    </div>
+    <div class="faq-area__entry">
+      <button type="button" class="faq-area__question">Can I return the car at a different location?<span class="faq-area__arrow">&#9662;</span></button>
+      <div class="faq-area__answer">
+        <p>Yes, you can select a different drop-off location for an additional fee. See our policy details when booking.</p>
+      </div>
+    </div>
+    <div class="faq-area__entry">
+      <button type="button" class="faq-area__question">What happens if I need to cancel my reservation?<span class="faq-area__arrow">&#9662;</span></button>
+      <div class="faq-area__answer">
+        <p>Cancellations are permitted based on the terms of your reservation. Most bookings allow free cancellation up to 24 hours before pick-up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>KNOW</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">About FlexiCar</a></li>
+        <li><a href="#">Bulk Order &amp; Booking Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>TERMS &amp; CONDITIONS</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery &amp; Return Policies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li>For Sale: FlexiCar@co.in</li>
+        <li>Call: +91 234567890</li>
+        <li>For Complaints: 1800 2421 2421</li>
+        <li>Chat Time: Our Team is Available<br>
+            From Monday to Saturday from<br>
+            9.00AM &ndash; 8.00PM.
+        </li>
+        <li>For Complaints: Flexioc.com</li>
+      </ul>
+    </div>
+    <div class="footer-col app-col">
+      <h4>DOWNLOAD APP</h4>
+      <div class="app-links">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="app-badge"></a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge"></a>
+      </div>
+    </div>
+    <div class="footer-col follow-col">
+      <h4>FOLLOW US</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2025 All Rights Reserved.</p>
+  </div>
+</footer>
+
+  <script>
+    // Store booking and redirect
+    function bookCar(carName, carPrice) {
+      // Save booking details to localStorage
+      localStorage.setItem("bookingCar", JSON.stringify({car: carName, price: carPrice}));
+      // Redirect to booking page
+      window.location.href = "booking.html";
+    }
+
+  // Car Data Array
+  const cars = [
+    {
+      name: "MAHINDRA",
+      image: "image 7 1.png", // Use your own hosted car image for best effect!
+      details: [
+        {
+          icon: "fa-solid fa-gears",
+          label: "Transmission",
+          value: "Manual",
+          desc: "Manual Transmission gives you full control over gear shifts, ideal for performance driving."
+        },
+        {
+          icon: "fa-solid fa-gas-pump",
+          label: "Energy Mode",
+          value: "Petrol",
+          desc: "Petrol engines deliver smooth, quiet performance with quick acceleration."
+        },
+        {
+          icon: "fa-solid fa-users",
+          label: "Seating Capacity",
+          value: "5 Adults",
+          desc: "Comfortably seats up to 5 passengers, perfect for families or small groups."
+        }
+      ]
+    },
+    {
+      name: "TATA",
+      image: "image 6 2.png",
+      details: [
+        {
+          icon: "fa-solid fa-gears",
+          label: "Transmission",
+          value: "Gear Box Manual",
+          desc: "Manual transmission gives you full control overgear shifts ideal for performance driving."
+        },
+        {
+          icon: "fa-solid fa-gas-pump",
+          label: "Energy Mode",
+          value: "Power Petrol",
+          desc: "Petrol engines deliver smooth, quiet performance with quick acceleration."
+        },
+        {
+          icon: "fa-solid fa-users",
+          label: "Seating Capacity",
+          value: "5 Adults",
+          desc: "Comfortably seats up to 5 passengers, perfect for families or small groups."
+        }
+      ]
+    },
+    {
+      name: "MG",
+      image: "b6vno0b_1636739 1 1.png",
+      details: [
+       {
+          icon: "fa-solid fa-gears",
+          label: "Transmission",
+          value: "Gear Box Manual",
+          desc: "Manual transmission gives you full control overgear shifts ideal for performance driving."
+        },
+        {
+          icon: "fa-solid fa-gas-pump",
+          label: "Energy Mode",
+          value: "Power Petrol",
+          desc: "Petrol engines deliver smooth, quiet performance with quick acceleration."
+        },
+        {
+          icon: "fa-solid fa-users",
+          label: "Seating Capacity",
+          value: "5 Adults",
+          desc: "Comfortably seats up to 5 passengers, perfect for families or small groups."
+        }
+      ]
+    }
+  ];
+
+  let currentIndex = 0;
+
+  // Helper to re-trigger pop-in animations
+  function popAnim(el, anim) {
+    el.style.animation = 'none';
+    el.offsetHeight; // Trigger reflow
+    el.style.animation = '';
+    el.classList.remove(anim); // Remove first
+    setTimeout(() => { el.classList.add(anim); }, 5);
+  }
+
+  // Show current car
+  function showCar(idx) {
+    const car = cars[idx];
+    //change hero background color based on car index
+    const hero = document.getElementById('hero');
+    hero.style.backgroundColor = ['#e0e0e0', '#d0f5d8', '#f5e0c0'][idx % cars.length];  const nameEl = document.getElementById('carName');
+    nameEl.textContent = car.name;
+    popAnim(nameEl, 'car-name');
+    // Car image
+    const imgEl = document.getElementById('carImg');
+    imgEl.src = car.image;
+    imgEl.alt = car.name + ' car image';
+    popAnim(imgEl, 'car-img');
+    // Info cards
+    const cardsRow = document.getElementById('detailCards');
+    cardsRow.innerHTML = '';
+    car.details.forEach(detail => {
+      const card = document.createElement('div');
+      card.className = "info-card";
+      card.innerHTML = `
+        <span class="icon"><i class="${detail.icon}"></i></span>
+        <span class="label">${detail.label}</span>
+        <span class="value">${detail.value}</span>
+        <span class="desc">${detail.desc}</span>
+      `;
+      cardsRow.appendChild(card);
+    });
+  }
+
+  // Carousel buttons
+  document.getElementById('prevBtn').onclick = () => {
+    currentIndex = (currentIndex-1 + cars.length) % cars.length;
+    showCar(currentIndex);
+  };
+  document.getElementById('nextBtn').onclick = () => {
+    currentIndex = (currentIndex+1) % cars.length;
+    showCar(currentIndex);
+  };
+
+  // Initial Car Load
+  showCar(currentIndex);
+  
+document.querySelectorAll('.faq-area__question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const entry = btn.closest('.faq-area__entry');
+    entry.classList.toggle('faq-area__open');
+    // Toggle answer visibility
+    const answer = entry.querySelector('.faq-area__answer');
+    if (entry.classList.contains('faq-area__open')) {
+      answer.style.display = 'block';
+    } else {
+      answer.style.display = 'none';
+    }
+    // Toggle arrow direction
+    const arrow = btn.querySelector('.faq-area__arrow');
+    if (arrow) {
+      arrow.textContent = entry.classList.contains('faq-area__open') ? '\u25B2' : '\u25BC';
+    }
+  });
+});
+// Hide all answers initially
+document.querySelectorAll('.faq-area__answer').forEach(function(ans) {
+  ans.style.display = 'none';
+});
+// This handles click on "Cars"
+const carMenu = document.getElementById('car-menu');
+const dropdown = carMenu.parentElement;
+
+carMenu.addEventListener('click', function(e) {
+  e.preventDefault();
+  dropdown.classList.toggle('open');
+});
+
+// Optional: Hide dropdown when clicking elsewhere
+document.addEventListener('click', function(e) {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+  }
+});
+
+</script>
+</body>
+</html>
